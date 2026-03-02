@@ -3,6 +3,12 @@ import { MapPin } from "lucide-react";
 import { FaCaretDown } from "react-icons/fa6";
 import { IoCartOutline } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 const Navbar = () => {
   const location = false;
@@ -65,6 +71,14 @@ const Navbar = () => {
               0
             </span>
           </Link>
+          <div className="pl-12">
+            <SignedOut>
+              <SignInButton className="bg-red-500 text-white px-3 rounded-md cursor-pointer text-2xl text-center p-1" />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
         </nav>
       </div>
     </div>
