@@ -10,8 +10,8 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 
-const Navbar = () => {
-  const location = false;
+const Navbar = ({location}) => {
+  
   return (
     <div className="bg-white py-3 shadow-2xl">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
@@ -25,7 +25,11 @@ const Navbar = () => {
           <div className="flex gap-1 cursor-pointer text-gray-700 items-center">
             <MapPin className="text-red-500" />
             <span className="font-semibold">
-              {location ? <div></div> : "Add Address"}
+              {location ? <div className="-space-y-2">
+                 <p>{location.country}</p>
+                 <p>{location.city}</p>
+                 <p>{location.quarter}</p>
+              </div> : "Add Address"}
             </span>
             {<FaCaretDown />}
           </div>
